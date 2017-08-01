@@ -210,4 +210,3 @@ create_food_wine_row("sweets", "Müller-Thurgau")
 create_food_wine_row("sweets", "Riesling")
 create_food_wine_row("sweets", "Moscato")
 create_food_wine_row("sweets", "Malvasia")
->>>>>>> master
