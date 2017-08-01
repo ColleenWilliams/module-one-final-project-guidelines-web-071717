@@ -22,7 +22,7 @@ end
 
 def find_wine_ids_by_varietal(wine_type)
     array_wines = Wine.where varietal: wine_type
-    wine_ids = wine_group.map do |wine|
+    wine_ids = array_wines.map do |wine|
       wine.id
     end
   wine_ids
@@ -35,19 +35,14 @@ end
 
 def create_food_wine_row(food, wine_type)
   foodid = find_food_id_by_type(food)
-  #will return one id
   wine_ids = find_wine_ids_by_varietal(wine_type)
-  #will return an array ids
-  if wine_ids.length != 0
     wine_ids.each do |wineid|
       FoodWines.find_or_create_by(food_id: foodid, wine_id: wineid)
-    #for each insance of wine_type make a FoodWine.create_or_find_by(food_id: , wine_id:  )
-    end
   end
 end
-
-sweet_white = ["Gewürztraminer", "Müller-Thurgau", "Malvasia", "Moscato", "Riesling"]
-rich_wine = []
+#
+# sweet_white = ["Gewürztraminer", "Müller-Thurgau", "Malvasia", "Moscato", "Riesling"]
+# rich_wine = []
 
 create_food_wine_row("vegetables", "Sauvignon Blanc")
 create_food_wine_row("vegetables", "Grüner Veltliner")
@@ -183,15 +178,15 @@ create_food_wine_row("red meat", "Aglianico")
 create_food_wine_row("red meat", "Malbec")
 create_food_wine_row("red meat", "Syrah")
 
-create_food_wine_row("cured meats", "Gewürztraminer")
-create_food_wine_row("cured meats", "Müller-Thurgau")
-create_food_wine_row("cured meats", "Riesling")
-create_food_wine_row("cured meats", "Moscato")
-create_food_wine_row("cured meats", "Malvasia")
-create_food_wine_row("cured meats", "St. Laurent")
-create_food_wine_row("cured meats", "Pinot Noir")
-create_food_wine_row("cured meats", "Zweigelt")
-create_food_wine_row("cured meats", "Gamay")
+create_food_wine_row("cured meat", "Gewürztraminer")
+create_food_wine_row("cured meat", "Müller-Thurgau")
+create_food_wine_row("cured meat", "Riesling")
+create_food_wine_row("cured meat", "Moscato")
+create_food_wine_row("cured meat", "Malvasia")
+create_food_wine_row("cured meat", "St. Laurent")
+create_food_wine_row("cured meat", "Pinot Noir")
+create_food_wine_row("cured meat", "Zweigelt")
+create_food_wine_row("cured meat", "Gamay")
 create_food_wine_row("cured meat", "Tempranillo")
 create_food_wine_row("cured meat", "Sangiovese")
 create_food_wine_row("cured meat", "Zinfandel")
