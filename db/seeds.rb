@@ -41,7 +41,7 @@ def create_food_wine_row(food, wine_type)
   foodid = find_food_id_by_type(food)
   wine_ids = find_wine_ids_by_varietal(wine_type)
     wine_ids.each do |wineid|
-      FoodWines.find_or_create_by(food_id: foodid, wine_id: wineid)
+      FoodWine.find_or_create_by(food_id: foodid, wine_id: wineid)
   end
 end
 #

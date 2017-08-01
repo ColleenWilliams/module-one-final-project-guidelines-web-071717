@@ -1,4 +1,4 @@
-class FoodWines < ActiveRecord::Base
+class FoodWine < ActiveRecord::Base
 
  belongs_to :food
  belongs_to :wine
