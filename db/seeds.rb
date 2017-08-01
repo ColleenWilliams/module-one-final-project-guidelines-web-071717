@@ -1,3 +1,8 @@
+require_relative '../config/environment'
+
+wine_adapter = WineApi.new
+wine_adapter.get_all_wine_list_from_api
+
 Food.find_or_create_by(food_type: "vegetables")
 Food.find_or_create_by(food_type: "roasted vegetables")
 Food.find_or_create_by(food_type: "soft cheese")
@@ -11,13 +16,13 @@ Food.find_or_create_by(food_type: "cured meat")
 Food.find_or_create_by(food_type: "sweets")
 
 #food_wine_join table
-def sauvignon_blanc_ids
-  array_sauvignon_blanc = Wine.where varietal: "Sauvignon Blanc"
-    sauvignon_blanc_ids = array_sauvignon_blanc.map do |wine|
-      wine.id
-  end
-  sauvignon_blanc_ids
-end
+# def sauvignon_blanc_ids
+#   array_sauvignon_blanc = Wine.where varietal: "Sauvignon Blanc"
+#     sauvignon_blanc_ids = array_sauvignon_blanc.map do |wine|
+#       wine.id
+#   end
+#   sauvignon_blanc_ids
+# end
 
 def find_wine_ids_by_varietal(wine_type)
     array_wines = Wine.where varietal: wine_type
