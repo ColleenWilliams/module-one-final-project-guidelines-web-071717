@@ -22,6 +22,11 @@ class CLIRunner
       puts "Please enter your main food category:"
       puts " 1. Vegetables \n 2. Roasted Vegetables \n 3. Soft Cheese \n 4. Hard Cheese \n 5. Starches \n 6. Fish \n 7. Rich Fish \n 8. White Meat \n 9. Red Meat \n 10. Cured Meat \n 11. Sweets"
       user_input = gets.chomp.downcase
+      until valid_input?(user_input)
+        puts "Please enter valid input."
+        user_input = gets.chomp.downcase
+      end
+      @current_food = user_input
       user_input
     end
 
@@ -33,12 +38,12 @@ class CLIRunner
     end
 
     def valid_input?(input)
-      if food_names.include?(input)
-        @current_food = input
-      else
-        puts "Please enter valid food"
-        what_are_you_eating?
-      end
+      food_names.include?(input)
+      #   @current_food = input
+      # else
+      #   puts "Please enter valid food"
+      #   what_are_you_eating?
+      # end
     end
 
     def list_out_types_of_wines(wine_array)
@@ -58,9 +63,19 @@ class CLIRunner
       end
     end
 
+
+
+    def valid_y_n_input?(input)
+      input == 'y' || input == 'n'
+    end
+
     def purchase_wine?
       puts "Would you like buy a bottle? y/n"
       user_input = gets.chomp.downcase
+      until valid_y_n_input?(user_input)
+        puts "Please enter valid input."
+        user_input = gets.chomp.downcase
+      end
       if user_input == "y"
         puts "Please enter the name of the bottle you wish to buy."
           user_selection = gets.chomp
@@ -70,6 +85,8 @@ class CLIRunner
         # logout
       end
     end
+
+  
 
     def add_to_cart(bottle)
       @cart << bottle
@@ -87,11 +104,17 @@ class CLIRunner
     def continue_shopping?
       puts "Would you like to continue_shopping? y/n"
       user_input = gets.chomp.downcase
+      until valid_y_n_input?(user_input)
+        puts "Please enter valid input."
+        user_input = gets.chomp.downcase
+      end
         if user_input == "n"
           puts "Thanks for shopping! Enjoy your meal."
           logout
       end
     end
+
+
 
 
 

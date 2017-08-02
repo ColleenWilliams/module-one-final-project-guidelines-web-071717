@@ -4,12 +4,15 @@ def runner(current_session)
   input = current_session.what_are_you_eating?
   # food_names
 
-  if current_session.valid_input?(input) == false
-      input = current_session.what_are_you_eating?
-      current_session.valid_input?(input)
-  else
-      food = current_session.valid_input?(input)
-  end
+  current_session.valid_input?(input)
+  food = input.downcase
+
+  # if current_session.valid_input?(input) == false
+  #     input = current_session.what_are_you_eating?
+  #     current_session.valid_input?(input)
+  # else
+  #     food = current_session.valid_input?(input)
+  # end
   # if current_session.valid_input?(input) == true
   #   food = current_session.valid_input?(input)
   # end
