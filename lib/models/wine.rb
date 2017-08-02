@@ -13,10 +13,6 @@ class Wine < ActiveRecord::Base
   end
 
   def self.find_wine_to_purchase(wine_name)
-    # bottle_info = {}
-    # bottle = self.find_by name: "#{wine_name}"
-    # bottle_info[:wine_name] = bottle.price.to_f
-    # bottle_info
     self.find_by(name: wine_name)
   end
 

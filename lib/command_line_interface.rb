@@ -46,12 +46,16 @@ class CLIRunner
     end
 
     def list_out_types_of_wines(wine_array)
-      puts "These are the types of wines that go with your wine:"
+      puts "These are the types of wines that go with your food:"
       wine_array.each.with_index(1) do |value, index|
         puts "#{index}. #{value}"
       end
       puts "Please select one."
       user_input = gets.chomp
+      until wine_array.include?(user_input)
+        puts "Please enter a valid input."
+        user_input = gets.chomp
+      end
       user_input
     end
 
@@ -68,7 +72,7 @@ class CLIRunner
       input == 'y' || input == 'n'
     end
 
-    def purchase_wine?
+    def purchase_wine?(bottle_array)
       puts "Would you like buy a bottle? y/n"
       user_input = gets.chomp.downcase
       until valid_y_n_input?(user_input)
@@ -78,6 +82,10 @@ class CLIRunner
       if user_input == "y"
         puts "Please enter the name of the bottle you wish to buy."
           user_selection = gets.chomp
+          until bottle_array.flatten.include?(user_selection)
+            puts "Please enter a valid selection."
+            user_selection = gets.chomp
+          end
           user_selection
       elsif user_input == "n"
         puts "Thank you for using our food & wine pairing app!"

@@ -24,11 +24,12 @@ def runner(current_session)
   wine_bottles = Wine.find_bottles(select_wine_type)
   current_session.bottles_by_wine_type(wine_bottles)
 
-  wine_to_purchase = current_session.purchase_wine?
+  wine_to_purchase = current_session.purchase_wine?(wine_bottles)
 
   bottle = Wine.find_wine_to_purchase(wine_to_purchase)
 
   current_session.add_to_cart(bottle)
+
   current_session.total
   current_session.continue_shopping?
 
