@@ -79,10 +79,11 @@ class CLIRunner
 
     def total
       prices = self.cart.map { |bottle| bottle.price }
-      # [27, 14, 15, 12]
-      prices.inject(:+)
+      cart_total = prices.inject(:+)
+      puts "You have #{self.cart.count} bottle(s) in your cart. Your cart total is $#{cart_total}."
     end
 
+    
 
 
     # def add_to_cart(bottle)

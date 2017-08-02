@@ -28,5 +28,6 @@ wine_to_purchase = current_session.purchase_wine?
 bottle = Wine.find_wine_to_purchase(wine_to_purchase)
 
 current_session.add_to_cart(bottle)
+current_session.total
 #
 # food = current_session.valid_input?(input)
