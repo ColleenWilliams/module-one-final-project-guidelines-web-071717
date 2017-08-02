@@ -29,7 +29,6 @@ class CLIRunner
       user_input
     end
 
-
     def food_names
       Food.all.map do |food|
         food.food_type
@@ -38,11 +37,6 @@ class CLIRunner
 
     def valid_input?(input)
       food_names.include?(input)
-      #   @current_food = input
-      # else
-      #   puts "Please enter valid food"
-      #   what_are_you_eating?
-      # end
     end
 
     def list_out_types_of_wines(wine_array)
@@ -66,8 +60,6 @@ class CLIRunner
       end
     end
 
-
-
     def valid_y_n_input?(input)
       input == 'y' || input == 'n'
     end
@@ -82,6 +74,9 @@ class CLIRunner
       if user_input == "y"
         puts "Please enter the name of the bottle you wish to buy."
           user_selection = gets.chomp
+          # user_selection_norm = user_selection.split(" ").map do |word|
+          #   word.capitalize
+          #   end.join(" ")
           until bottle_array.flatten.include?(user_selection)
             puts "Please enter a valid selection."
             user_selection = gets.chomp

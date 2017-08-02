@@ -16,9 +16,4 @@ class Wine < ActiveRecord::Base
     self.find_by(name: wine_name)
   end
 
-
-
-
-
-
 end

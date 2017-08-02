@@ -3,7 +3,6 @@ class Food < ActiveRecord::Base
   has_many :wines, through: :food_wines
   has_many :food_wines
 
-
 #finds food instance based on user input
   def self.food_from_user_input(food)
     type_of_food = Food.find_by food_type: "#{food}"
@@ -18,7 +17,5 @@ class Food < ActiveRecord::Base
     end
     wine_types.uniq!
   end
-
-
 
 end
