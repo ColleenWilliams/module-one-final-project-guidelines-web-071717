@@ -5,15 +5,16 @@ current_session.welcome
 current_session.validate_user
 input = current_session.what_are_you_eating?
 # food_names
+
 if current_session.valid_input?(input) == false
-  current_session.what_are_you_eating?
-  else
+    input = current_session.what_are_you_eating?
+    current_session.valid_input?(input)
+else
     food = current_session.valid_input?(input)
 end
-
-
-
-
+# if current_session.valid_input?(input) == true
+#   food = current_session.valid_input?(input)
+# end
 
 ##issue
 user_food = Food.food_from_user_input(food)
@@ -22,5 +23,10 @@ select_wine_type = current_session.list_out_types_of_wines(wine_type_list)
 wine_bottles = Wine.find_bottles(select_wine_type)
 current_session.bottles_by_wine_type(wine_bottles)
 
+wine_to_purchase = current_session.purchase_wine?
+
+bottle = Wine.find_wine_to_purchase(wine_to_purchase)
+
+current_session.add_to_cart(bottle)
 #
 # food = current_session.valid_input?(input)

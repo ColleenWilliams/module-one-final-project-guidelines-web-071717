@@ -1,6 +1,10 @@
 class CLIRunner
 
-  attr_reader :current_user, :current_food, :food_number
+  attr_reader :current_user, :current_food, :food_number, :cart
+
+    def initialize
+      @cart = []
+    end
 
     def welcome
       puts "Welcome to the Food & Wine Pairing Library"
@@ -53,6 +57,39 @@ class CLIRunner
         puts "Name: #{bottle[0]}, Price: $#{bottle[1]}, Year: #{bottle[2]}"
       end
     end
+
+    def purchase_wine?
+      puts "Would you like buy a bottle? y/n"
+      user_input = gets.chomp.downcase
+      if user_input == "y"
+        puts "Please enter the name of the bottle you wish to buy."
+          user_selection = gets.chomp
+          user_selection
+      elsif user_input == "n"
+        puts "Thank you for using our food & wine pairing app!"
+        # logout
+      end
+    end
+
+    def add_to_cart(bottle)
+      @cart << bottle
+      self.cart
+    end
+
+
+    def total
+      prices = self.cart.map { |bottle| bottle.price }
+      # [27, 14, 15, 12]
+      prices.inject(:+)
+    end
+
+
+
+    # def add_to_cart(bottle)
+    #   bottle_array.select do |bottle|
+    #     bottle[0], bottle [1]
+    #
+    # end
 
     def logout
       "Later #{self.current_user}"
