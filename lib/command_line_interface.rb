@@ -48,26 +48,29 @@ class CLIRunner
       end
     end
 
+    def list_out_types_of_wines(wine_array)
+      puts "These are the types of wines that go with your wine:"
+      wine_array.each.with_index(1) do |value, index|
+        puts "#{index}. #{value}"
+      end
+      puts "Please select one."
+      user_input = gets.chomp
+      user_input
+    end
+
+    def bottles_by_wine_type(bottle_array)
+      puts "These are the bottles of wine according to your selected wine type:"
+      bottle_array.each.with_index(1) do |bottle|
+        puts "Name: #{bottle[0]}, Price: $#{bottle[1]}, Year: #{bottle[2]}"
+      end
+    end
 
 
-    # def return_food_id
-    #   food_object = Food.all.select do |food|
-    #     if food.food_type == @current_food
-    #       return food
-    #     end
-    #   end
-    #   @food_number = food_object[:id]
-    #   binding.pry
-    # end
-    #
-    # def find_wine_ids
-    #   FoodWines.all.select do |fw|
-    #     if fw.food_id == @food_number
-    #       fw.wine_id
-    #     end
-    #   end
-    #   binding.pry
-    # end
+
+
+
+
+
 
     def logout
       "Later #{self.current_user}"
