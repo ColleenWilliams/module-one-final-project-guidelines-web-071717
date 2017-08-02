@@ -4,7 +4,7 @@ class CLIRunner
 
     def welcome
       # puts out a welcome message here!
-      puts "Welcome to the Wine Library"
+      puts "Welcome to the Food & Wine Pairing Library"
     end
 
     # def validate_user
@@ -50,24 +50,24 @@ class CLIRunner
 
 
 
-    def return_food_id
-      food_object = Food.all.select do |food|
-        if food.food_type == @current_food
-          return food
-        end
-      end
-      @food_number = food_object[:id]
-      binding.pry
-    end
-
-    def find_wine_ids
-      FoodWines.all.select do |fw|
-        if fw.food_id == @food_number
-          fw.wine_id
-        end
-      end
-      binding.pry
-    end
+    # def return_food_id
+    #   food_object = Food.all.select do |food|
+    #     if food.food_type == @current_food
+    #       return food
+    #     end
+    #   end
+    #   @food_number = food_object[:id]
+    #   binding.pry
+    # end
+    #
+    # def find_wine_ids
+    #   FoodWines.all.select do |fw|
+    #     if fw.food_id == @food_number
+    #       fw.wine_id
+    #     end
+    #   end
+    #   binding.pry
+    # end
 
     def logout
       "Later #{self.current_user}"
