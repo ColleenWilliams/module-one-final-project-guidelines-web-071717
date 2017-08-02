@@ -13,7 +13,7 @@ class CLIRunner
     def validate_user
       puts "Please enter your name"
       user_input = gets.chomp
-      current_user = user_input
+      @current_user = user_input
       puts "Hello #{user_input}!"
       end
 
@@ -78,22 +78,27 @@ class CLIRunner
 
 
     def total
-      prices = self.cart.map { |bottle| bottle.price }
+      prices = self.cart.map { |bottle| bottle.price.to_f }
       cart_total = prices.inject(:+)
       puts "You have #{self.cart.count} bottle(s) in your cart. Your cart total is $#{cart_total}."
     end
 
-    
+
+    def continue_shopping?
+      puts "Would you like to continue_shopping? y/n"
+      user_input = gets.chomp.downcase
+        if user_input == "n"
+          puts "Thanks for shopping! Enjoy your meal."
+          logout
+      end
+    end
 
 
-    # def add_to_cart(bottle)
-    #   bottle_array.select do |bottle|
-    #     bottle[0], bottle [1]
-    #
-    # end
 
     def logout
-      "Later #{self.current_user}"
+      @cart = []
+      puts "Later #{self.current_user}"
+      exit
     end
 
 end
