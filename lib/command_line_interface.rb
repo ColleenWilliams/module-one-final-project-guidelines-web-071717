@@ -18,7 +18,6 @@ class CLIRunner
       end
 
     def what_are_you_eating?
-      puts "What's cooking, good looking?"
       puts "Please enter your main food category:"
       puts " 1. Vegetables \n 2. Roasted Vegetables \n 3. Soft Cheese \n 4. Hard Cheese \n 5. Starches \n 6. Fish \n 7. Rich Fish \n 8. White Meat \n 9. Red Meat \n 10. Cured Meat \n 11. Sweets"
       user_input = gets.chomp.downcase
@@ -86,7 +85,7 @@ class CLIRunner
       end
     end
 
-  
+
 
     def add_to_cart(bottle)
       @cart << bottle
@@ -109,7 +108,7 @@ class CLIRunner
         user_input = gets.chomp.downcase
       end
         if user_input == "n"
-          puts "Thanks for shopping! Enjoy your meal."
+          puts "Thanks for shopping! We hope you enjoy your wine(s)."
           logout
       end
     end
