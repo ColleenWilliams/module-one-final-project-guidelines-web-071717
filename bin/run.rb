@@ -8,4 +8,4 @@ food = current_session.what_are_you_eating?
 current_session.valid_input?(food)
 user_food = Food.food_from_user_input(food)
 binding.pry
-user_food.wine_type_by_food
+wine_type_list = user_food.wine_type_by_food
