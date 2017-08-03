@@ -45,7 +45,7 @@ class CLIRunner
         puts "#{index}. #{value}"
       end
       puts "Please select one."
-      user_input = gets.chomp
+      user_input = gets.chomp.titleize
       until wine_array.include?(user_input)
         puts "Please enter a valid input."
         user_input = gets.chomp
@@ -74,9 +74,6 @@ class CLIRunner
       if user_input == "y"
         puts "Please enter the name of the bottle you wish to buy."
           user_selection = gets.chomp
-          # user_selection_norm = user_selection.split(" ").map do |word|
-          #   word.capitalize
-          #   end.join(" ")
           until bottle_array.flatten.include?(user_selection)
             puts "Please enter a valid selection."
             user_selection = gets.chomp
@@ -84,7 +81,7 @@ class CLIRunner
           user_selection
       elsif user_input == "n"
         puts "Thank you for using our food & wine pairing app!"
-        # logout
+        logout
       end
     end
 
@@ -97,9 +94,9 @@ class CLIRunner
 
 
     def total
-      prices = self.cart.map { |bottle| bottle.price.to_f }
+      prices = self.cart.map { |bottle| bottle.price.to_f}
       cart_total = prices.inject(:+)
-      puts "You have #{self.cart.count} bottle(s) in your cart. Your cart total is $#{cart_total}."
+      puts "You have #{self.cart.count} bottle(s) in your cart. Your cart total is $%.2f" %[cart_total]
     end
 
 
